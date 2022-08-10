@@ -3,7 +3,8 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, tap, take } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
-import { environment } from '../../environments/environment'
+import { environment } from '../../environments/environment';
+import { Tempo } from '../interfaces/tempo.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class TempoService {
   }
 
   public getCidade(cidade: string): Observable<any> {
-    return this.httpClient.get<any>(`${environment.URL_TEMPO}
+    return this.httpClient.get<Tempo>(`${environment.URL_TEMPO}
       ?array_limit=${environment.ARRAY_LIMIT}
       &fields=${environment.FIELDS}
       &key=${environment.KEY_API}
