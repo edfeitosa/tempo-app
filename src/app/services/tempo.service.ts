@@ -19,7 +19,7 @@ export class TempoService {
     return throwError(() => new Error(`Erro: ${error.status} / ${error.message}`))
   }
 
-  public getCidade(cidade: string): Observable<any> {
+  public getCidade(cidade: string = 'Belo Horizonte'): Observable<any> {
     return this.httpClient.get<Tempo>(`${environment.URL_TEMPO}
       ?array_limit=${environment.ARRAY_LIMIT}
       &fields=${environment.FIELDS}
